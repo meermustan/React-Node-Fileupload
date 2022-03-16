@@ -2,7 +2,7 @@
 React Multiple Files learn how to upload a multiple image files in the Node js / Express server.
 
 
-## Step by Step Tutorial
+## Step by Step
 [React Multiple Files Upload with Node/Express ]
 
 

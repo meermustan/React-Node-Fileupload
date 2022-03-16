@@ -1,8 +1,9 @@
 # ReactMultipleFilesUpload
-React Multiple Files - In this tutorial, learn how to upload a multiple image files in the MongoDB database using the Node and Express server
+React Multiple Files learn how to upload a multiple image files in the Node js / Express server.
+
 
 ## Step by Step Tutorial
-[React Multiple Files Upload with Node/Express Tutorial](https://www.positronx.io/react-multiple-files-upload-with-node-express-tutorial/)
+[React Multiple Files Upload with Node/Express ]
 
 
 ### `npm start`

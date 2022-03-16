@@ -10,7 +10,8 @@ export default class FilesUploadComponent extends Component {
         this.onSubmit = this.onSubmit.bind(this);
 
         this.state = {
-            imgCollection: ''
+            imgCollection: '',
+            itemSavedResponse:'',
         }
     }
 
@@ -22,18 +23,18 @@ export default class FilesUploadComponent extends Component {
     onSubmit(e) {
         e.preventDefault()
         
-        console.log('From OnSubmit :>> ',this.state.imgCollection)
 
         var formData = new FormData();
-        for (const key of Object.keys(this.state.imgCollection)) {
+        let key;
+        for (key of Object.keys(this.state.imgCollection)) {
             formData.append('imgCollection', this.state.imgCollection[key])
-            console.log('From Forloop of files append into formData :>> ',formData)
         }
         axios.post("http://localhost:4000/api/upload-images", formData, {
         }).then(res => {
-            console.log(res.data)
+            this.setState({itemSavedResponse:res.data.massage})
         })
     }
+
 
     render() {
         return (
@@ -47,6 +48,7 @@ export default class FilesUploadComponent extends Component {
                             <button className="btn btn-primary" type="submit">Upload</button>
                         </div>
                     </form>
+                    <div><strong>{this.state.itemSavedResponse}</strong></div>
                 </div>
             </div>
         )

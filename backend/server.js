@@ -1,23 +1,9 @@
 let express = require('express'),
-    mongoose = require('mongoose'),
     cors = require('cors'),
-    bodyParser = require('body-parser'),
-    dbConfig = require('./database/db');
+    bodyParser = require('body-parser');
 
 const api = require('../backend/routes/user.routes')
 
-// MongoDB Configuration
-mongoose.Promise = global.Promise;
-mongoose.connect(dbConfig.db, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-}).then(() => {
-    console.log('Database sucessfully connected')
-},
-    error => {
-        console.log('Database could not be connected: ' + error)
-    }
-)
 
 const app = express();
 app.use(bodyParser.json());
@@ -28,6 +14,7 @@ app.use(cors());
 
 app.use('/public', express.static('public'));
 
+// Here check request if it's /api then forward it to ./routes/user.routes.js
 app.use('/api', api)
 
 const port = process.env.PORT || 4000;
